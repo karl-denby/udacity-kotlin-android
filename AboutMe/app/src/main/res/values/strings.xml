@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="name">Karl Denby</string>
+    <string name="yellow_star_description">Yellow Star</string>
+    <string name="bio_text">This is all about me, blah, blah, blah</string>
+    <string name="done">Done</string>
+</resources>

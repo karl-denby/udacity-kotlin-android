@@ -1,4 +1,4 @@
-package com.karldenby.diceroller
+package com.diceroller.roller
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

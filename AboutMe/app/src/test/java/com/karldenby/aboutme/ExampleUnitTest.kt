@@ -1,4 +1,4 @@
-package com.karldenby.diceroller
+package com.karldenby.aboutme
 
 import org.junit.Test
 
