@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import kotlin.random.Random
+import io.realm.Realm
 
 class MainActivity : AppCompatActivity() {
 
     // assign after inflation
     lateinit var diceImage: ImageView
     lateinit var rollButton: Button
+    private lateinit var realm: Realm
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener {
             rollDice()
         }
+
+        // Setup Realm
+        Realm.init(this)
+        realm = Realm.getDefaultInstance()
     }
 
     private fun rollDice() {
