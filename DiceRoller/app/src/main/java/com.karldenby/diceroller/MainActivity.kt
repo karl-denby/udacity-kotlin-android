@@ -17,11 +17,11 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
-    // UI Elements that we need assign after inflation
+    // UI Elements that we need assign after "inflation"
     private lateinit var diceImage: ImageView
     private lateinit var rollButton: Button
 
-    // realm things that we will need during different stages of the lifecycle
+    // Realm things that we will need during different stages of the lifecycle
     private lateinit var realmConfiguration: RealmConfiguration
     private lateinit var realm: Realm
     private lateinit var realmListener: RealmChangeListener<Realm>
@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Setup all those lateinit things you promised you would initalize before you use them
 
         // Setup Realm
         Realm.init(this)
@@ -131,6 +133,13 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         //realm = Realm.getInstance(realmConfiguration)
+
+        val query = realm.where(Dice :: class.java)
+        query.equalTo("cloud", 1 as Int)
+        val result = query.findAll()
+        Log.i("REALM", "" + result[0]?.number)
+        rollDice(result[0]?.number!!, false)
+
         Log.i("REALM","App Paused")
     }
 
